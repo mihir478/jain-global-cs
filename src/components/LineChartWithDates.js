@@ -1,6 +1,5 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { metricToLabel } from '../services/api';
 
 const LineChartWithDates = ({ data, metric }) => {
     if (!data || !data.length) {
@@ -14,7 +13,7 @@ const LineChartWithDates = ({ data, metric }) => {
                 <YAxis />
                 <Tooltip labelFormatter={(key) => new Date(key).toLocaleDateString()} />
                 <Legend />
-                <Line type="monotone" dataKey={metricToLabel[metric]} stroke="#0080fe" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="value" stroke="#0080fe" strokeWidth={2} dot={false} />
             </LineChart>
         </ResponsiveContainer>
     );

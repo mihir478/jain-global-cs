@@ -1,16 +1,11 @@
 import React from 'react';
 import { MenuItem, Box, Select, InputLabel } from '@mui/material';
 
-import { Price, Return } from '../constants';
-
-export const availableMetrics = [
-    Price,
-    Return
-];
-
 const MetricDropdown = (props) => {
 
-    const { metric, setMetric } = props;
+    const { availableMetrics, metric, setMetric } = props;
+    
+    if(!availableMetrics.length) return null;
 
     const handleChange = (event) => {
         setMetric(event.target.value);
